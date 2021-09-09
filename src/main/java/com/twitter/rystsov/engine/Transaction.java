@@ -33,6 +33,7 @@ public class Transaction {
 
     public void commit(DBCollection txStorage) {
         // if this operation pass, tx will be committed
+        // when commit fails, may set the `status` of tx to 'failed'
         db.delete(txStorage, tx);
         // tx is committed, this is just a clean up
         try {
